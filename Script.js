@@ -2,6 +2,7 @@ export class Main
 {
     static button1 = document.getElementById("Pryma");
     static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW"];
+    static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka"];
     static startButton = document.getElementById("start");
     static output = document.getElementById("outText");
     static score = document.getElementById("score");
@@ -47,7 +48,7 @@ export class Main
             {
                 this.memIMG.src="no.gif";
                 this.uncorrect++;
-            this.output.innerText ="Niepoprawnie :C, Była  to: "+this.tab[this.interval-1];
+            this.output.innerText ="Niepoprawnie :C, Była  to: "+this.names[this.interval-1];
             }
             console.log(button.num);
             this.score.innerText = "Ilość prawidłowych: "+this.correct+" | Ilość nieprawidłowych: "+this.uncorrect;  
