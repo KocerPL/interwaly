@@ -17,7 +17,7 @@ export class Main
         urls: {
             C4: "C.wav",
         },
-        baseUrl: "/"
+        baseUrl: "./"
     }).toDestination();
     static start()
     {
