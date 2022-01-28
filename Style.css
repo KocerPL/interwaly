@@ -4,13 +4,13 @@
     width: max-content;
     height:max-content;
     padding: 10px;
-    font-size: 1em;
+   font-size: 1em;
     background-color: #4FB477;
     border: solid #FFD972 4px;
     border-radius: 10px;
     cursor: pointer;
-    margin: 5px;
-    transition: padding 0.25s, margin 0.25s;
+    margin: 0.2em;
+    transition: padding 0.25s, margin 0.25s, font-size 0.25s;
     
     overflow: hidden;
     white-space: nowrap;
@@ -18,10 +18,10 @@
 }
 .interwal:hover
 {
-    padding:15px;
+ 
     margin: 0px;
     font-size: 1.2em;
-    transition: padding 0.25s, margin 0.25s;
+  
   
 }
 #header

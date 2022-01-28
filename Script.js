@@ -73,10 +73,10 @@ export class Main
         // var synth = new AudioSynth;
         this.interval=null;
          var piano = Synth.createInstrument('piano');
-         piano.play(soundByInterval[first], 4, 2);
+         piano.play(soundByInterval[first], 4, 4);
  
-         setTimeout(()=>{ piano.play(soundByInterval[second], 4, 2);
-            this.interval=second-first+1;},1000);
+         setTimeout(()=>{ piano.play(soundByInterval[second], 4,4);
+            this.interval=second-first+1;},2000);
     }
 }
 
