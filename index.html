@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=1">
         <link rel="Stylesheet" href="Style.css">
-        <script src="audiosynth.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.36/Tone.js" defer></script>
         <script src="Script.js" type="module" defer></script>
     </head>
     <body>
@@ -58,10 +58,11 @@
             <hr>
             <div class="interwal" style="display: none;" id="powtorz" >Powtórz interwał</div>
             <hr>
-           
+            <label>Głośność:<input type="range" id="volume" name="volume"
+         min="-40" max="0" value="-10"></label>
             <div id="out">
                 <output id="outText"></output><br>
-                <b><output id="score">Ilość poprawnych:0 | Ilość niepoprawnych: 0</output></b><br>
+                <b><output id="score">Ilość prawidłowych: 0 | Ilość nieprawidłowych: 0</output></b><br>
                 <img src="default.gif" width="300" height="300" id="mem">
                 
                 </div>

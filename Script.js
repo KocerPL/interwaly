@@ -8,13 +8,31 @@ export class Main
     static score = document.getElementById("score");
     static memIMG = document.getElementById("mem");
     static powtorz = document.getElementById("powtorz");
+    static volume = document.getElementById("volume");
     static startNote = null;
     static correct = 0;
     static uncorrect=0;
     static interval = null;
+    static sampler = new Tone.Sampler({
+        urls: {
+            C4: "C.wav",
+        },
+        baseUrl: "/"
+    }).toDestination();
     static start()
     {
         this.initButtons();
+        this.sampler.volume.value =-10;
+        this.volume.onchange = ()=>{
+            this.sampler.volume.value = this.volume.value;
+        }
+        this.volume.oninput = ()=>{
+            this.sampler.volume.value = this.volume.value;
+        }
+        this.volume.onclick = ()=>{
+            this.sampler.volume.value = this.volume.value;
+        }
+      // this.sampler.triggerAttackRelease("D#4", "1s");
         this.powtorz.style.display="inline-block";
         this.powtorz.onclick= ()=>
         {
@@ -69,15 +87,20 @@ export class Main
     static playInterval(first,second)
     {
         this.startNote = first;
-        let soundByInterval = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
+        let soundByInterval = ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4']
         // var synth = new AudioSynth;
         this.interval=null;
-         var piano = Synth.createInstrument('piano');
-         piano.play(soundByInterval[first], 4, 4);
+        let piano = this.sampler;
+     //   console.log(soundByInterval[first]);
+        this.sampler.triggerAttackRelease(soundByInterval[first], "1s");
  
-         setTimeout(()=>{ piano.play(soundByInterval[second], 4,4);
+         setTimeout(()=>{   piano.triggerAttackRelease(soundByInterval[second], "1s");
             this.interval=second-first+1;},2000);
     }
 }
+
+
+
+//play a middle 'C' for the duration of an 8th note
 
 Main.run();
