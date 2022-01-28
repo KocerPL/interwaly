@@ -9,7 +9,7 @@
     border: solid #FFD972 4px;
     border-radius: 10px;
     cursor: pointer;
-    margin: 0.2em;
+    margin: 0.5em;
     transition: padding 0.25s, margin 0.25s, font-size 0.25s;
     
     overflow: hidden;
@@ -19,7 +19,7 @@
 .interwal:hover
 {
  
-    margin: 0px;
+    margin: 0.1em;
     font-size: 1.2em;
   
   

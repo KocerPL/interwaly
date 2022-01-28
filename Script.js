@@ -15,7 +15,7 @@ export class Main
     static start()
     {
         this.initButtons();
-        this.powtorz.style.display="block";
+        this.powtorz.style.display="inline-block";
         this.powtorz.onclick= ()=>
         {
             if(this.interval!= null && this.startNote != null)
