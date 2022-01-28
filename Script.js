@@ -3,16 +3,26 @@ export class Main
     static button1 = document.getElementById("Pryma");
     static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW"];
     static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka"];
-    static startButton = document.getElementById("start");
+    static startButton = document.getElementById("klik");
     static output = document.getElementById("outText");
     static score = document.getElementById("score");
     static memIMG = document.getElementById("mem");
+    static powtorz = document.getElementById("powtorz");
+    static startNote = null;
     static correct = 0;
     static uncorrect=0;
     static interval = null;
     static start()
     {
         this.initButtons();
+        this.powtorz.style.display="block";
+        this.powtorz.onclick= ()=>
+        {
+            if(this.interval!= null && this.startNote != null)
+            {
+                this.playInterval(this.startNote, this.interval+this.startNote-1);
+            }
+        }
         this.playInterval(0,Math.floor(Math.random()*7));
     }
    static run()
@@ -30,8 +40,8 @@ export class Main
         {
         let button =document.getElementById(this.tab[i-1]);
         button.num=i;
+        button.style.display="block";
         button.onclick=()=>{
-           let num=i;
             if(this.interval==null)
             {
                 this.output.innerText="Poczekaj aż dźwięk zostanie zagrany!!!!";
@@ -58,6 +68,7 @@ export class Main
     }
     static playInterval(first,second)
     {
+        this.startNote = first;
         let soundByInterval = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
         // var synth = new AudioSynth;
         this.interval=null;

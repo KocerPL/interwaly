@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=1">
         <link rel="Stylesheet" href="Style.css">
         <script src="audiosynth.js" defer></script>
         <script src="Script.js" type="module" defer></script>
@@ -9,51 +11,59 @@
         <div id="header">
             Odgadnij interwały 
             </div>
+            <div id="preContainer" style="display: none;">
+                Ustawienia:<br>
+
+            </div>
         <div id="container">
-            <div class="interwal" id="Pryma" num=0 >
+            <div class="interwal"  id="klik" num=0 >
+                Kliknij aby zagrać pierwszy interwał
+            </div>
+            <div class="interwal" style="display: none;" id="Pryma" num=0 >
                 Pryma Czysta
             </div>
-            <div class="interwal" id="SekundaM" num=0 >
+            <div class="interwal" style="display: none;" id="SekundaM" num=0 >
                 Sekunda Mała
             </div>
-            <div class="interwal" id="SekundaW" num=0 >
+            <div class="interwal" style="display: none;" id="SekundaW" num=0 >
                 Sekunda Wielka
             </div>
-            <div class="interwal" id="TercjaM" num=0 >
+            <div class="interwal" style="display: none;" id="TercjaM" num=0 >
                 Tercja Mała
             </div>
-            <div class="interwal" id="TercjaW" num=0 >
+            <div class="interwal" style="display: none;" id="TercjaW" num=0 >
                 Tercja Wielka
             </div>
-            <div class="interwal" id="KwartaCZ" num=0 >
+            <div class="interwal" style="display: none;" id="KwartaCZ" num=0 >
                 Kwarta Czysta
             </div>
-            <div class="interwal" id="Tryton" num=0 >
+            <div class="interwal" style="display: none;" id="Tryton" num=0 >
                 Tryton
             </div>
-            <div class="interwal" id="KwintaCZ" num=0 >
+            <div class="interwal" style="display: none;" id="KwintaCZ" num=0 >
                 Kwinta Czysta
             </div>
-            <div class="interwal" id="SekstaM" num=0 >
+            <div class="interwal" style="display: none;" id="SekstaM" num=0 >
                 Seksta Mała
             </div>
-            <div class="interwal" id="SekstaW" num=0 >
+            <div class="interwal" style="display: none;" id="SekstaW" num=0 >
                 Seksta Wielka
             </div>
-            <div class="interwal" id="SeptymaM" num=0 >
+            <div class="interwal" style="display: none;" id="SeptymaM" num=0 >
                 Septyma Mała
             </div>
-            <div class="interwal" id="SeptymaW" num=0 >
+            <div class="interwal" style="display: none;" id="SeptymaW" num=0 >
                 Septyma Wielka
             </div>
-            <br>
+            <hr>
+            <div class="interwal" style="display: none;" id="powtorz" >Powtórz interwał</div>
+            <hr>
            
             <div id="out">
                 <output id="outText"></output><br>
                 <b><output id="score">Ilość poprawnych:0 | Ilość niepoprawnych: 0</output></b><br>
                 <img src="default.gif" width="300" height="300" id="mem">
-                <br>
-                <input type="button" value="Kliknij, Aby zagrać pierwszy interwał" id="start">
+                
                 </div>
                
             </div>

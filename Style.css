@@ -1,50 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap');
 .interwal
 {
     width: max-content;
     height:max-content;
     padding: 10px;
-    display: inline-block;
     font-size: 1em;
-    background-color: green;
-    border: solid black 4px;
+    background-color: #4FB477;
+    border: solid #FFD972 4px;
     border-radius: 10px;
     cursor: pointer;
-    transition: padding 0.25s;
+    margin: 5px;
+    transition: padding 0.25s, margin 0.25s;
+    
+    overflow: hidden;
+    white-space: nowrap;
     
 }
 .interwal:hover
 {
     padding:15px;
-    transition: padding 0.25s;
+    margin: 0px;
+    font-size: 1.2em;
+    transition: padding 0.25s, margin 0.25s;
   
 }
 #header
 {
     text-align: center;
     width:100%;
-    height:100px;
-    font-size: 3em;
+    height:max-content;
+    font-size: 2rem;
 }
 #container
 {
+    display:flex;
+    
     margin: auto auto;
-    background-color: grey;
-    width:max-content;
+    background-color: #1f5a85;
+    width:85%;
     padding: 30px;
-}
+    flex-direction: row;
+    justify-content:center;
+flex-wrap:wrap;
+}   
 #out
 {
     display: block;
     width: max-content;
-
+   align-self: flex-end;
     margin:auto auto;
     padding: 30px;
-    background-color: white;
+    background-color: #EEEEEE;
     margin-top:10px;
-    border: solid black 4px;
+    border: solid #FFD972 4px;
     border-radius: 10px;
 }
-
+#container hr {
+    width: 100%;
+  }
 #outText
 {
     display: block;
@@ -53,5 +66,9 @@
 }
 body
 {
-    background-color: darkslategray;
+    color: #99621E;
+    font-family: 'Palanquin Dark', sans-serif;
+    background-color: #37505C;
+    margin:0px;
+    width:100vw;
 }
