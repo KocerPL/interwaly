@@ -2,16 +2,20 @@ export class Main
 {
     static button1 = document.getElementById("Pryma");
     static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW"];
-    static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka"];
+    static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka","Oktawa czysta"];
     static startButton = document.getElementById("klik");
     static output = document.getElementById("outText");
     static score = document.getElementById("score");
     static memIMG = document.getElementById("mem");
     static powtorz = document.getElementById("powtorz");
     static volume = document.getElementById("volume");
+    static setup = document.getElementById("Setup");
+    static nieC = document.getElementById("nieC");
+    static misc = false;
     static startNote = null;
     static correct = 0;
     static uncorrect=0;
+    static pos = false;
     static interval = null;
     static sampler = new Tone.Sampler({
         urls: {
@@ -32,16 +36,21 @@ export class Main
         this.volume.onclick = ()=>{
             this.sampler.volume.value = this.volume.value;
         }
+        this.misc= this.nieC.checked;
       // this.sampler.triggerAttackRelease("D#4", "1s");
         this.powtorz.style.display="inline-block";
+        this.setup.style.display="none";
         this.powtorz.onclick= ()=>
         {
             if(this.interval!= null && this.startNote != null)
             {
-                this.playInterval(this.startNote, this.interval+this.startNote-1);
+                this.playInterval(this.startNote, this.pos ?  this.interval+this.startNote-1 : -this.interval+this.startNote+1);
             }
         }
-        this.playInterval(0,Math.floor(Math.random()*7));
+        if(!this.misc)
+        this.playInterval(0,Math.floor(Math.random()*12));
+        else
+        this.playInterval(Math.floor(Math.random()*12),Math.floor(Math.random()*12));
     }
    static run()
     {
@@ -78,24 +87,31 @@ export class Main
                 this.uncorrect++;
             this.output.innerText ="Niepoprawnie :C, Była  to: "+this.names[this.interval-1];
             }
-            console.log(button.num);
+            console.log("=======");
             this.score.innerText = "Ilość prawidłowych: "+this.correct+" | Ilość nieprawidłowych: "+this.uncorrect;  
+            console.log(this.interval);
+            if(!this.misc)
             this.playInterval(0,Math.floor(Math.random()*12));
+            else
+            this.playInterval(Math.floor(Math.random()*12),Math.floor(Math.random()*12));
+           
         }
         }
     }
     static playInterval(first,second)
     {
         this.startNote = first;
-        let soundByInterval = ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4']
+        let soundByInterval = ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4','C5','C#5','D5','D#5','E5','F5','F#5','G5','G#5','A5','A#5','B5']
         // var synth = new AudioSynth;
         this.interval=null;
         let piano = this.sampler;
-     //   console.log(soundByInterval[first]);
+        console.log(soundByInterval[first]);
+        console.log(soundByInterval[second]);
         this.sampler.triggerAttackRelease(soundByInterval[first], "1s");
  
          setTimeout(()=>{   piano.triggerAttackRelease(soundByInterval[second], "1s");
-            this.interval=second-first+1;},2000);
+            this.interval=Math.abs(second-first)+1;
+        if(second-first>0) this.pos = true; else this.pos=false; },2000);
     }
 }
 

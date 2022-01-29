@@ -72,3 +72,14 @@ body
     margin:0px;
     width:100vw;
 }
+#Setup
+{
+background-color: #4FB477;
+padding: 10px;
+border: solid #FFD972 4px;
+border-radius: 10px;
+}
+#Setup label
+{
+    cursor:help;
+}
