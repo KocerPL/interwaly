@@ -87,9 +87,9 @@ export class Main
                 this.uncorrect++;
             this.output.innerText ="Niepoprawnie :C, Była  to: "+this.names[this.interval-1];
             }
-            console.log("=======");
+           // console.log("=======");
             this.score.innerText = "Ilość prawidłowych: "+this.correct+" | Ilość nieprawidłowych: "+this.uncorrect;  
-            console.log(this.interval);
+            //console.log(this.interval);
             if(!this.misc)
             this.playInterval(0,Math.floor(Math.random()*12));
             else
@@ -105,8 +105,8 @@ export class Main
         // var synth = new AudioSynth;
         this.interval=null;
         let piano = this.sampler;
-        console.log(soundByInterval[first]);
-        console.log(soundByInterval[second]);
+       // console.log(soundByInterval[first]);
+        //console.log(soundByInterval[second]);
         this.sampler.triggerAttackRelease(soundByInterval[first], "1s");
  
          setTimeout(()=>{   piano.triggerAttackRelease(soundByInterval[second], "1s");
