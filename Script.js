@@ -15,7 +15,7 @@ export class Main
     static percDisplay = document.getElementById("perc");
     static percOut = document.getElementById("percOut");
     //Definiowanie nazwa(aliasów) interwałów
-    static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW"];
+    static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW","OktawaCZ"];
     static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka","Oktawa czysta"];
     //Definiowanie potrzebnych zmiennych
     static misc = false; //true jeśli użytkownik chce zaczynać od różnych dźwięków
@@ -73,9 +73,9 @@ export class Main
             }
         }
         if(!this.misc)
-        this.playInterval(0,Math.floor(Math.random()*12));
+        this.playInterval(0,Math.floor(Math.random()*13));
         else
-        this.playInterval(Math.floor(Math.random()*12),Math.floor(Math.random()*12));
+        this.playInterval(Math.floor(Math.random()*13),Math.floor(Math.random()*13));
     }
    
    static updateOutputValue()
@@ -87,7 +87,7 @@ export class Main
    }
     static initButtons()
     {
-        for(var i=1;i<13;i++)
+        for(var i=1;i<14;i++)
         {
         let button =document.getElementById(this.tab[i-1]);
         button.num=i;
@@ -115,9 +115,9 @@ export class Main
            this.updateOutputValue(); 
             //console.log(this.interval);
             if(!this.misc)
-            this.playInterval(0,Math.floor(Math.random()*12));
+            this.playInterval(0,Math.floor(Math.random()*13));
             else
-            this.playInterval(Math.floor(Math.random()*12),Math.floor(Math.random()*12));
+            this.playInterval(Math.floor(Math.random()*13),Math.floor(Math.random()*13));
            
         }
         }
