@@ -34,7 +34,7 @@
 #container
 {
     display:flex;
-    
+    box-shadow: 10px 8px 43px -9px rgba(75, 66, 90, 1);
     margin: auto auto;
     background-color: #1f5a85;
     width:85%;
@@ -57,6 +57,8 @@ flex-wrap:wrap;
 }
 #container hr {
     width: 100%;
+    
+    border: none;
   }
 #outText
 {
@@ -66,6 +68,7 @@ flex-wrap:wrap;
 }
 body
 {
+    overflow-x: hidden; 
     color: #99621E;
     font-family: 'Palanquin Dark', sans-serif;
     background-color: #37505C;
@@ -82,4 +85,22 @@ border-radius: 10px;
 #Setup label
 {
     cursor:help;
+}
+#mem
+{
+    display: block;
+    margin: auto auto;
+    border-radius: 10px;
+}
+#licznik
+{
+    color:white; 
+  
+    text-align: center;
+    display: none;
+}
+.popr
+{
+    width: 48%; height:max-content; background-color: red; float:left;  border-radius: 10px;
+    margin:1%;
 }

@@ -61,15 +61,21 @@
             <hr>
             <div class="interwal" style="display: none;" id="powtorz" >Powtórz interwał</div>
             <hr>
-            <label>Głośność:<input type="range" id="volume" name="volume"
-         min="-40" max="0" value="-10"></label>
+          
             <div id="out">
-                <output id="outText"></output><br>
-                <b><output id="score">Ilość prawidłowych: 0 | Ilość nieprawidłowych: 0</output></b><br>
+                <output id="outText"></output>
+                <div id="licznik">
+                    <div style="background-color: green; " class="popr">Poprawnie:<br><output id="poprawne" style="font-size: 40px;">0</output></div>
+                    <div style="background-color: red; " class="popr">Niepoprawnie:<br><output id="niepoprawne" style="font-size: 40px;">0</output></div>
+                    <span style="color:black;"><output id="percOut"></output><br><progress id="perc" max="100" value="0"></progress></span>
+                </div>
+              
                 <img src="default.gif" width="300" height="300" id="mem">
                 
                 </div>
-               
+               <hr>
+               <label>Głośność:<input type="range" id="volume" name="volume"
+                min="-40" max="0" value="-10"></label>
             </div>
 
     </body>
