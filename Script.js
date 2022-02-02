@@ -14,6 +14,8 @@ export class Main
     static niepoprawne = document.getElementById("niepoprawne");
     static percDisplay = document.getElementById("perc");
     static percOut = document.getElementById("percOut");
+    static statisticDiv = document.getElementById("statDiv");
+   static statistic = {};
     //Definiowanie nazwa(aliasów) interwałów
     static tab = ["Pryma","SekundaM","SekundaW","TercjaM","TercjaW","KwartaCZ","Tryton","KwintaCZ","SekstaM","SekstaW","SeptymaM","SeptymaW","OktawaCZ"];
     static names = ["Pryma Czysta","Sekunda Mała","Sekunda Wielka","Tercja Mała","Tercja Wielka","Kwarta Czysta","Tryton","Kwinta Czysta","Seksta Mała","Seksta Wielka","Septyma Mała","Septyma Wielka","Oktawa czysta"];
@@ -36,6 +38,18 @@ export class Main
     {
         console.log("This site uses Tone.js, github page: https://tonejs.github.io/");
         //przypisanie funkcji guzika do zastartowania głównej funkcjii
+        let htmlForStatistic = "";
+        for(let i=0;i<this.tab.length; i++)
+        {
+            this.statistic[this.tab[i]] = {
+                correct:0,
+                uncorrect:0
+            }
+            htmlForStatistic+=this.names[i]+"- <span style='color: green;'>Poprawne: "+this.correct+"</span>, <span style='color: red;'>Niepoprawne: "+this.uncorrect+"</span> Proc.:"+Math.floor((this.statistic[this.tab[i]].correct/((this.statistic[this.tab[i]].correct+this.statistic[this.tab[i]].uncorrect)))*100)+"%<br>";
+            
+            
+        }
+        this.statisticDiv.innerHTML =htmlForStatistic;
         this.startButton.onclick = ()=>{
             this.startButton.remove();
             this.start();
@@ -84,6 +98,13 @@ export class Main
     this.niepoprawne.innerText = this.uncorrect;
     this.percDisplay.value = this.correct/(this.correct+this.uncorrect) *100;
     this.percOut.innerText = (Math.round(this.correct/(this.correct+this.uncorrect) *100))+"% poprawnie";
+    let htmlForStatistic = "";
+        for(let i=0;i<this.tab.length; i++)
+        {
+            htmlForStatistic+=this.names[i]+"- <span style='color: green;'>Poprawne: "+this.statistic[this.tab[i]].correct+"</span>, <span style='color: red;'>Niepoprawne: "+this.statistic[this.tab[i]].uncorrect+"</span> Proc.:"+Math.floor((this.statistic[this.tab[i]].correct/((this.statistic[this.tab[i]].correct+this.statistic[this.tab[i]].uncorrect)))*100)+"%<br>";
+            
+        }
+        this.statisticDiv.innerHTML =htmlForStatistic;
    }
     static initButtons()
     {
@@ -103,14 +124,16 @@ export class Main
                 this.output.innerText ="Poprawnie :D";
                 this.memIMG.src="yes.gif";
                 this.correct++;
-
+                this.statistic[this.tab[this.interval-1]].correct++;
             }
             else
             {
                 this.memIMG.src="no.gif";
                 this.uncorrect++;
+                this.statistic[this.tab[this.interval-1]].uncorrect++;
             this.output.innerText ="Niepoprawnie :C, Była  to: "+this.names[this.interval-1];
             }
+           // console.log(this.statistic);
            // console.log("=======");
            this.updateOutputValue(); 
             //console.log(this.interval);

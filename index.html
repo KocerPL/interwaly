@@ -15,7 +15,7 @@
         <div id="container">
             <div id="Setup">
                 Ustawienia:<br>
-                <label title="Gdy zaznaczone, pierwszy dźwięk będzie mógł być różny od C4">Zaczynaj od różnych dźwięków (test): <input type="checkbox" id="nieC"></label>
+                <label title="Gdy zaznaczone, pierwszy dźwięk będzie mógł być różny od C4">Zaczynaj od różnych dźwięków (Trudne): <input type="checkbox" id="nieC"></label>
                 <hr>
                 <div class="interwal"  id="klik" num=0 >
                     Kliknij aby zagrać pierwszy interwał
@@ -66,6 +66,7 @@
             <hr>
           
             <div id="out">
+                <div id="normal">
                 <output id="outText"></output>
                 <div id="licznik">
                     <div style="background-color: green; " class="popr">Poprawnie:<br><output id="poprawne" style="font-size: 40px;">0</output></div>
@@ -74,12 +75,20 @@
                 </div>
               
                 <img src="default.gif" width="300" height="300" id="mem">
-                
+                <input type="button" value="Statystyka" onclick="let div = document.getElementById('statisticDiv'); div.style.display = 'block'; let normal = document.getElementById('normal'); normal.style.display = 'none';">
                 </div>
                <hr>
+               <div id="statisticDiv" style="display: none;">
+                    <div id="statDiv">
+                        </div>
+                    <input type="button" value="Normalny" onclick="let div = document.getElementById('statisticDiv'); div.style.display = 'none'; let normal = document.getElementById('normal'); normal.style.display = 'block';">
+                </div>
                <label>Głośność:<input type="range" id="volume" name="volume"
                 min="-40" max="0" value="-10"></label>
-            </div>
-
+               
+               
+               
+                </div>
+            
     </body>
 </html>
